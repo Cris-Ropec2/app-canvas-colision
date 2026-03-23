@@ -3,92 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laboratorio de Colisiones 2D</title>
+    <title>Laboratorio de Colisiones 2D - Glassmorphism</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/styless.css">
 </head>
-<body class="bg-black"> <nav class="navbar navbar-light bg-light shadow mb-4">
-        <div class="container-fluid">
-            <span class="navbar-brand mb-0 h1">Simulación de Colisiones 2D</span>
-        </div>
-    </nav>
+<body>
 
-    <div class="container">
-        
-        <div class="card shadow mb-5 border-0"> <div class="card-header bg-primary text-white h5 mb-0 py-3">
-                1. Movimiento Libre
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-3">
-                        <label class="form-label fw-bold">Ancho del Canvas:</label>
-                        <input type="number" id="w-main" class="form-control mb-2" value="600">
-                        <label class="form-label fw-bold">Alto del Canvas:</label>
-                        <input type="number" id="h-main" class="form-control mb-2" value="300">
-                        <label class="form-label fw-bold">Número de Círculos:</label>
-                        <input type="number" id="n-main" class="form-control mb-3" value="5">
-                        <button id="btn-main" class="btn btn-primary w-100 fw-bold">Aplicar Cambios</button>
-                    </div>
-                    <div class="col-md-9 d-flex justify-content-center align-items-center bg-light rounded p-3">
-                        <canvas id="canvas-main" class="border shadow-sm"></canvas>
-                    </div>
+    <div class="bg-image-container"></div>
+
+    <div class="page-content d-flex flex-column min-vh-100">
+
+        <nav class="navbar navbar-expand-lg navbar-dark glass-nav shadow-sm mb-4 sticky-top">
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bold text-uppercase" href="#">Simulación 2D</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto nav nav-pills" id="pills-tab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active text-white px-4 m-1" id="pills-main-tab" data-bs-toggle="pill" data-bs-target="#pills-main" type="button" role="tab">1. Movimiento Libre</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link text-white px-4 m-1" id="pills-colision-tab" data-bs-toggle="pill" data-bs-target="#pills-colision" type="button" role="tab">2. Detección Visual</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link text-white px-4 m-1" id="pills-rebote-tab" data-bs-toggle="pill" data-bs-target="#pills-rebote" type="button" role="tab">3. Física de Rebote</button>
+                        </li>
+                    </ul>
                 </div>
             </div>
-        </div>
+        </nav>
 
-        <div class="card shadow mb-5 border-0">
-            <div class="card-header bg-danger text-white h5 mb-0 py-3">
-                2. Detección Visual de Colisión
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-3">
-                        <label class="form-label fw-bold">Ancho del Canvas:</label>
-                        <input type="number" id="w-colision" class="form-control mb-2" value="600">
-                        <label class="form-label fw-bold">Alto del Canvas:</label>
-                        <input type="number" id="h-colision" class="form-control mb-2" value="300">
-                        <label class="form-label fw-bold">Número de Círculos:</label>
-                        <input type="number" id="n-colision" class="form-control mb-3" value="10">
-                        <button id="btn-colision" class="btn btn-danger w-100 fw-bold">Aplicar Cambios</button>
-                    </div>
-                    <div class="col-md-9 d-flex justify-content-center align-items-center bg-light rounded p-3">
-                        <canvas id="canvas-colision" class="border shadow-sm"></canvas>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="container flex-grow-1">
+            <div class="tab-content" id="pills-tabContent">
 
-        <div class="card shadow mb-5 border-0">
-            <div class="card-header bg-success text-white h5 mb-0 py-3">
-                3. Física de Rebote
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-3">
-                        <label class="form-label fw-bold">Ancho del Canvas:</label>
-                        <input type="number" id="w-rebote" class="form-control mb-2" value="600">
-                        <label class="form-label fw-bold">Alto del Canvas:</label>
-                        <input type="number" id="h-rebote" class="form-control mb-2" value="300">
-                        <label class="form-label fw-bold">Número de Círculos:</label>
-                        <input type="number" id="n-rebote" class="form-control mb-3" value="15">
-                        <button id="btn-rebote" class="btn btn-success w-100 fw-bold">Aplicar Cambios</button>
-                    </div>
-                    <div class="col-md-9 d-flex justify-content-center align-items-center bg-light rounded p-3">
-                        <canvas id="canvas-rebote" class="border shadow-sm"></canvas>
+                <div class="tab-pane fade show active" id="pills-main" role="tabpanel">
+                    <div class="row g-4 align-items-start">
+                        <div class="col-lg-3">
+                            <div class="glass-card p-4 shadow">
+                                <h5 class="card-title mb-4 fw-bold text-primary">Controles: Movimiento</h5>
+                                <div class="mb-3">
+                                    <label class="form-label fw-bold text-white-50">Ancho Canvas</label>
+                                    <input type="number" id="w-main" class="form-control glass-input" value="800">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label fw-bold text-white-50">Alto Canvas</label>
+                                    <input type="number" id="h-main" class="form-control glass-input" value="400">
+                                </div>
+                                <div class="mb-4">
+                                    <label class="form-label fw-bold text-white-50">N° Círculos</label>
+                                    <input type="number" id="n-main" class="form-control glass-input" value="5">
+                                </div>
+                                <button id="btn-main" class="btn btn-primary w-100 fw-bold py-2 shadow-sm">Actualizar Tablero</button>
+                            </div>
+                        </div>
+                        <div class="col-lg-9 text-center">
+                            <div class="glass-canvas-container p-2 shadow-lg">
+                                <canvas id="canvas-main"></canvas>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
+                <div class="tab-pane fade" id="pills-colision" role="tabpanel">
+                    <div class="row g-4 align-items-start">
+                        <div class="col-lg-3">
+                            <div class="glass-card p-4 shadow">
+                                <h5 class="card-title mb-4 fw-bold text-danger">Controles: Detección</h5>
+                                <div class="mb-3">
+                                    <label class="form-label fw-bold text-white-50">Ancho Canvas</label>
+                                    <input type="number" id="w-colision" class="form-control glass-input" value="800">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label fw-bold text-white-50">Alto Canvas</label>
+                                    <input type="number" id="h-colision" class="form-control glass-input" value="400">
+                                </div>
+                                <div class="mb-4">
+                                    <label class="form-label fw-bold text-white-50">N° Círculos</label>
+                                    <input type="number" id="n-colision" class="form-control glass-input" value="10">
+                                </div>
+                                <button id="btn-colision" class="btn btn-danger w-100 fw-bold py-2 shadow-sm">Actualizar Tablero</button>
+                            </div>
+                        </div>
+                        <div class="col-lg-9 text-center">
+                            <div class="glass-canvas-container p-2 shadow-lg">
+                                <canvas id="canvas-colision"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="pills-rebote" role="tabpanel">
+                    <div class="row g-4 align-items-start">
+                        <div class="col-lg-3">
+                            <div class="glass-card p-4 shadow">
+                                <h5 class="card-title mb-4 fw-bold text-success">Controles: Física</h5>
+                                <div class="mb-3">
+                                    <label class="form-label fw-bold text-white-50">Ancho Canvas</label>
+                                    <input type="number" id="w-rebote" class="form-control glass-input" value="800">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label fw-bold text-white-50">Alto Canvas</label>
+                                    <input type="number" id="h-rebote" class="form-control glass-input" value="400">
+                                </div>
+                                <div class="mb-4">
+                                    <label class="form-label fw-bold text-white-50">N° Círculos</label>
+                                    <input type="number" id="n-rebote" class="form-control glass-input" value="15">
+                                </div>
+                                <button id="btn-rebote" class="btn btn-success w-100 fw-bold py-2 shadow-sm">Actualizar Tablero</button>
+                            </div>
+                        </div>
+                        <div class="col-lg-9 text-center">
+                            <div class="glass-canvas-container p-2 shadow-lg">
+                                <canvas id="canvas-rebote"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
 
-    </div>
+        <footer class="glass-footer text-white text-center p-4 mt-5">
+            <div class="container">
+                <p class="mb-1 fw-bold fs-5">👨‍💻 Desarrollador: Cristopher Rodríguez Pérez</p>
+                <p class="mb-1 text-white-50">🎓 Instituto Tecnológico de Pachuca | Semestre: 6</p>
+                <p class="mb-0 text-white-50">📞 771 444 7858 | ✉️ l23200892@pachuca.tecnm.mx</p>
+            </div>
+        </footer>
 
-    <footer class="bg-light text-dark text-center p-4 mt-5 shadow-lg">
-        <p class="mb-1 fw-bold">Desarrollador: Christopher Rodríguez Pérez</p>
-        <p class="mb-1">Instituto Tecnológico de Pachuca | Semestre: 6</p>
-        <p class="mb-0">Contacto: tu_correo@ejemplo.com</p>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bundle.min.js"></script>
+    </div> <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
     <script src="./assets/js/main.js"></script>
     <script src="./assets/js/main_colision.js"></script>
     <script src="./assets/js/main_rebote.js"></script>

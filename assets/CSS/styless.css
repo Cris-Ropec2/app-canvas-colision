@@ -1,16 +1,113 @@
-/* Asegurar fondo negro puro */
-body {
-    background-color: #000000;
+/* 1. Configuración del Fondo de la Página */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
 }
 
-/* Estilo para los tableros canvas */
+/* Contenedor fijo para la imagen de fondo */
+.bg-image-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Imagen abstracta vibrante para resaltar la transparencia */
+    background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 100%), 
+                url('../IMG/paisaje.jpg') no-repeat center center fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1; /* Detrás de todo */
+}
+
+/* Contenedor del contenido para asegurar scroll correcto */
+.page-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* 2. Clases Base de Glassmorphism */
+
+/* Estilo común de cristal (fondo translúcido, desenfoque y borde sutil) */
+.glass-panel-base {
+    background: rgba(234, 55, 55, 0.898); /* Fondo blanco casi transparente */
+    backdrop-filter: blur(15px);          /* EFECTO DE DESENFOQUE MAESTRO */
+    -webkit-backdrop-filter: blur(15px);   /* Soporte para Safari */
+    border: 1px solid rgba(255, 255, 255, 0.15); /* Borde tipo cristal */
+    color: white;
+}
+
+/* Aplicación a la Barra de Navegación */
+.glass-nav {
+    background: rgba(0, 0, 0, 0.2) !important; /* Un poco más oscuro para legibilidad */
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Aplicación a los Paneles de Control (Tarjetas) */
+.glass-card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px; /* Bordes redondeados modernos */
+}
+
+/* Contenedor del Canvas para que parezca flotar en cristal */
+.glass-canvas-container {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    display: inline-block; /* Se ajusta al tamaño del canvas interno */
+}
+
+/* Aplicación al Pie de Página */
+.glass-footer {
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 3. Estilos de Elementos Internos */
+
+/* Ajuste de Inputs para estilo Glass */
+.glass-input {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+}
+.glass-input:focus {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.1);
+}
+
+/* Ajuste de Pestañas de Bootstrap */
+.nav-pills .nav-link {
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+.nav-pills .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+.nav-pills .nav-link.active {
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* Estilo del Canvas (El fondo amarillo se mantiene definido en el JS) */
 canvas {
     display: block;
-    /* Borde redondeado sutil para el tablero amarillo */
-    border-radius: 8px; 
-}
-
-/* Pequeño ajuste para que los labels resalten en la tarjeta blanca */
-.card-body label {
-    color: #333;
+    border-radius: 8px; /* Redondeado sutil dentro del contenedor glass */
+    max-width: 100%;    /* Responsivo */
+    height: auto;
 }

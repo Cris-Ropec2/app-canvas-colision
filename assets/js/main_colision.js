@@ -12,9 +12,9 @@
     function initColision() {
         if (animationId) cancelAnimationFrame(animationId);
 
-        window_width = parseInt(document.getElementById("w-colision").value);
-        window_height = parseInt(document.getElementById("h-colision").value);
-        let numCirculos = parseInt(document.getElementById("n-colision").value);
+        window_width = parseInt(document.getElementById("w-colision").value) || 600;
+        window_height = parseInt(document.getElementById("h-colision").value) || 300;
+        let numCirculos = parseInt(document.getElementById("n-colision").value) || 10;
 
         canvas.width = window_width; canvas.height = window_height;
         canvas.style.background = "#ff8";
@@ -32,7 +32,7 @@
                 context.beginPath();
                 context.strokeStyle = this.color;
                 context.textAlign = "center"; context.textBaseline = "middle";
-                context.font = "16px Arial"; context.fillText(this.text, this.posX, this.posY);
+                context.font = "20px Arial"; context.fillText(this.text, this.posX, this.posY);
                 context.lineWidth = 2;
                 context.arc(this.posX, this.posY, this.radius, 0, Math.PI * 2, false);
                 context.stroke(); context.closePath();
@@ -46,7 +46,7 @@
         }
 
         for (let i = 0; i < numCirculos; i++) {
-            let radius = Math.floor(Math.random() * 20 + 10);
+            let radius = Math.floor(Math.random() * 25 + 10);
             let x = Math.random() * (window_width - radius * 2) + radius;
             let y = Math.random() * (window_height - radius * 2) + radius;
             let speed = Math.random() * 2 + 1;
@@ -57,8 +57,10 @@
             animationId = requestAnimationFrame(updateCircle);
             ctx.clearRect(0, 0, window_width, window_height);
 
+            // Restaurar color original
             circles.forEach(c => c.color = c.originalColor);
 
+            // Detectar colisiones (todos contra todos)
             for (let i = 0; i < circles.length; i++) {
                 for (let j = i + 1; j < circles.length; j++) {
                     if (getDistance(circles[i].posX, circles[i].posY, circles[j].posX, circles[j].posY) < circles[i].radius + circles[j].radius) {
