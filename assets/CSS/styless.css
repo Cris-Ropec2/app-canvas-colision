@@ -1,8 +1,16 @@
+/* Asegurar fondo negro puro */
 body {
-    font-family: Arial, sans-serif;
+    background-color: #000000;
 }
 
+/* Estilo para los tableros canvas */
 canvas {
     display: block;
-    border-radius: 4px;
+    /* Borde redondeado sutil para el tablero amarillo */
+    border-radius: 8px; 
+}
+
+/* Pequeño ajuste para que los labels resalten en la tarjeta blanca */
+.card-body label {
+    color: #333;
 }

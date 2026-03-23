@@ -7,9 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
-<body class="bg-light">
-
-    <nav class="navbar navbar-dark bg-dark mb-4">
+<body class="bg-black"> <nav class="navbar navbar-light bg-light shadow mb-4">
         <div class="container-fluid">
             <span class="navbar-brand mb-0 h1">Simulación de Colisiones 2D</span>
         </div>
@@ -17,67 +15,66 @@
 
     <div class="container">
         
-        <div class="card shadow-sm mb-5">
-            <div class="card-header bg-primary text-white h5 mb-0">
-                Movimiento Libre
+        <div class="card shadow mb-5 border-0"> <div class="card-header bg-primary text-white h5 mb-0 py-3">
+                1. Movimiento Libre
             </div>
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-3">
-                        <label class="form-label">Ancho del Canvas:</label>
+                        <label class="form-label fw-bold">Ancho del Canvas:</label>
                         <input type="number" id="w-main" class="form-control mb-2" value="600">
-                        <label class="form-label">Alto del Canvas:</label>
+                        <label class="form-label fw-bold">Alto del Canvas:</label>
                         <input type="number" id="h-main" class="form-control mb-2" value="300">
-                        <label class="form-label">Número de Círculos:</label>
+                        <label class="form-label fw-bold">Número de Círculos:</label>
                         <input type="number" id="n-main" class="form-control mb-3" value="5">
-                        <button id="btn-main" class="btn btn-outline-primary w-100">Aplicar Cambios</button>
+                        <button id="btn-main" class="btn btn-primary w-100 fw-bold">Aplicar Cambios</button>
                     </div>
-                    <div class="col-md-9 d-flex justify-content-center align-items-center bg-secondary-subtle rounded">
-                        <canvas id="canvas-main" class="bg-white border"></canvas>
+                    <div class="col-md-9 d-flex justify-content-center align-items-center bg-light rounded p-3">
+                        <canvas id="canvas-main" class="border shadow-sm"></canvas>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="card shadow-sm mb-5">
-            <div class="card-header bg-danger text-white h5 mb-0">
-                Detección Visual de Colisión
+        <div class="card shadow mb-5 border-0">
+            <div class="card-header bg-danger text-white h5 mb-0 py-3">
+                2. Detección Visual de Colisión
             </div>
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-3">
-                        <label class="form-label">Ancho del Canvas:</label>
+                        <label class="form-label fw-bold">Ancho del Canvas:</label>
                         <input type="number" id="w-colision" class="form-control mb-2" value="600">
-                        <label class="form-label">Alto del Canvas:</label>
+                        <label class="form-label fw-bold">Alto del Canvas:</label>
                         <input type="number" id="h-colision" class="form-control mb-2" value="300">
-                        <label class="form-label">Número de Círculos:</label>
+                        <label class="form-label fw-bold">Número de Círculos:</label>
                         <input type="number" id="n-colision" class="form-control mb-3" value="10">
-                        <button id="btn-colision" class="btn btn-outline-danger w-100">Aplicar Cambios</button>
+                        <button id="btn-colision" class="btn btn-danger w-100 fw-bold">Aplicar Cambios</button>
                     </div>
-                    <div class="col-md-9 d-flex justify-content-center align-items-center bg-secondary-subtle rounded">
-                        <canvas id="canvas-colision" class="bg-white border"></canvas>
+                    <div class="col-md-9 d-flex justify-content-center align-items-center bg-light rounded p-3">
+                        <canvas id="canvas-colision" class="border shadow-sm"></canvas>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="card shadow-sm mb-5">
-            <div class="card-header bg-success text-white h5 mb-0">
-                Física de Rebote
+        <div class="card shadow mb-5 border-0">
+            <div class="card-header bg-success text-white h5 mb-0 py-3">
+                3. Física de Rebote
             </div>
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-3">
-                        <label class="form-label">Ancho del Canvas:</label>
+                        <label class="form-label fw-bold">Ancho del Canvas:</label>
                         <input type="number" id="w-rebote" class="form-control mb-2" value="600">
-                        <label class="form-label">Alto del Canvas:</label>
+                        <label class="form-label fw-bold">Alto del Canvas:</label>
                         <input type="number" id="h-rebote" class="form-control mb-2" value="300">
-                        <label class="form-label">Número de Círculos:</label>
+                        <label class="form-label fw-bold">Número de Círculos:</label>
                         <input type="number" id="n-rebote" class="form-control mb-3" value="15">
-                        <button id="btn-rebote" class="btn btn-outline-success w-100">Aplicar Cambios</button>
+                        <button id="btn-rebote" class="btn btn-success w-100 fw-bold">Aplicar Cambios</button>
                     </div>
-                    <div class="col-md-9 d-flex justify-content-center align-items-center bg-secondary-subtle rounded">
-                        <canvas id="canvas-rebote" class="bg-white border"></canvas>
+                    <div class="col-md-9 d-flex justify-content-center align-items-center bg-light rounded p-3">
+                        <canvas id="canvas-rebote" class="border shadow-sm"></canvas>
                     </div>
                 </div>
             </div>
@@ -85,13 +82,13 @@
 
     </div>
 
-    <footer class="bg-dark text-white text-center p-4 mt-4">
-        <p class="mb-1">Desarrollador: Cristopher Rodríguez Pérez</p>
+    <footer class="bg-light text-dark text-center p-4 mt-5 shadow-lg">
+        <p class="mb-1 fw-bold">Desarrollador: Christopher Rodríguez Pérez</p>
         <p class="mb-1">Instituto Tecnológico de Pachuca | Semestre: 6</p>
-        <p class="mb-0">Contacto: l23200892@pachuca.tecnm.mx</p>
+        <p class="mb-0">Contacto: tu_correo@ejemplo.com</p>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bundle.min.js"></script>
     <script src="./assets/js/main.js"></script>
     <script src="./assets/js/main_colision.js"></script>
     <script src="./assets/js/main_rebote.js"></script>
