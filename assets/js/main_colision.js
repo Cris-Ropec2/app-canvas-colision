@@ -17,7 +17,7 @@
         let numCirculos = parseInt(document.getElementById("n-colision").value) || 10;
 
         canvas.width = window_width; canvas.height = window_height;
-        canvas.style.background = "#ff8";
+        canvas.style.background = "rgba(117, 117, 92, 0.63)";
         circles = [];
 
         class Circle {

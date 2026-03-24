@@ -16,7 +16,7 @@ body, html {
     height: 100%;
     /* Imagen abstracta vibrante para resaltar la transparencia */
     background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 100%), 
-                url('../IMG/paisaje.jpg') no-repeat center center fixed;
+                url('../IMG/fondo.jpg') no-repeat center center fixed;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

@@ -19,7 +19,7 @@
         // Ajustar tamaño del canvas
         canvas.width = window_width;
         canvas.height = window_height;
-        canvas.style.background = "#ff8"; // Mantenemos tu fondo amarillo
+        canvas.style.background = "rgba(117, 117, 92, 0.63)"
 
         circles = [];
 
